@@ -17,6 +17,19 @@ html, body {
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
 }
 
+.github-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+}
+
+.github-btn:hover {
+  opacity: 1;
+}
+
+
 .topbar {
   position: fixed;
   top: 0;
@@ -63,7 +76,7 @@ html, body {
   background: var(--glass);
   color: var(--fg);
   outline: none;
-  display: block; /* always visible now */
+  display: block; 
 }
 
 .password:focus {

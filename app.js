@@ -2,7 +2,6 @@ const editor = document.getElementById("editor");
 const copyBtn = document.getElementById("copyBtn");
 const hint = document.getElementById("hint");
 
-// ---------- helpers ----------
 function setHint(msg) {
   hint.textContent = msg || "";
 }
@@ -30,7 +29,6 @@ function setPath(seg) {
   setHint(path === "/" ? "" : path);
 }
 
-// ---------- load from URL ----------
 function loadFromUrl() {
   const seg = normalizePath(window.location.pathname);
   if (!seg) {
@@ -43,7 +41,6 @@ function loadFromUrl() {
   setHint(`/${seg}`);
 }
 
-// ---------- events ----------
 editor.addEventListener("input", () => {
   const text = editor.value ?? "";
   const seg = compress(text);
@@ -62,5 +59,4 @@ copyBtn.addEventListener("click", async () => {
 
 window.addEventListener("popstate", loadFromUrl);
 
-// ---------- init ----------
 loadFromUrl();
