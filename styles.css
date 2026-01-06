@@ -7,20 +7,24 @@
   --glass2: rgba(255, 255, 255, 0.09);
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+
+html,
+body {
   height: 100%;
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial;
 
-  /* 🔥 hide browser scrollbars */
   overflow: hidden;
 }
 
-/* ---------- TOP BAR ---------- */
+
 
 .topbar {
   position: fixed;
@@ -33,7 +37,7 @@ html, body {
   justify-content: space-between;
   padding: 0 18px;
   border-bottom: 1px solid var(--line);
-  background: rgba(0,0,0,0.72);
+  background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(14px);
   z-index: 10;
 }
@@ -50,8 +54,8 @@ html, body {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.85);
-  box-shadow: 0 0 18px rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
 }
 
 .controls {
@@ -60,7 +64,7 @@ html, body {
   gap: 10px;
 }
 
-/* ---------- BUTTONS ---------- */
+
 
 .btn {
   padding: 10px 12px;
@@ -69,20 +73,26 @@ html, body {
   background: var(--glass);
   color: var(--fg);
   cursor: pointer;
-  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, opacity 120ms ease;
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease,
+    box-shadow 120ms ease;
 }
 
 .btn:hover {
   transform: translateY(-1px);
   background: var(--glass2);
-  border-color: rgba(255,255,255,0.22);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .btn:active {
-  transform: translateY(0px);
+  transform: translateY(0);
 }
 
-/* GitHub icon button */
+
+
 .github-btn {
   padding: 10px;
   text-decoration: none;
@@ -96,7 +106,63 @@ html, body {
   opacity: 1;
 }
 
-/* ---------- HINT ---------- */
+
+
+#copyBtn {
+  position: relative;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+
+  backdrop-filter: blur(16px);
+
+  transition:
+    transform 140ms ease,
+    background 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+#copyBtn::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.35),
+    transparent 60%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+
+#copyBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 6px 24px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+#copyBtn:hover::after {
+  opacity: 0.6;
+}
+
+#copyBtn:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 
 .hint {
   position: fixed;
@@ -112,7 +178,7 @@ html, body {
   z-index: 9;
 }
 
-/* ---------- EDITOR ---------- */
+   
 
 .editor {
   position: absolute;
@@ -129,11 +195,10 @@ html, body {
   color: var(--fg);
   font-size: 18px;
   line-height: 1.55;
-  caret-color: rgba(255,255,255,0.9);
+  caret-color: rgba(255, 255, 255, 0.9);
 
-  /* 🔥 scroll works, scrollbar hidden */
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 .editor::-webkit-scrollbar {
@@ -142,5 +207,5 @@ html, body {
 }
 
 .editor::placeholder {
-  color: rgba(255,255,255,0.32);
+  color: rgba(255, 255, 255, 0.32);
 }
