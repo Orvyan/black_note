@@ -15,9 +15,12 @@ html, body {
   background: var(--bg);
   color: var(--fg);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+
+  /* 🔥 hide browser scrollbars */
+  overflow: hidden;
 }
 
-
+/* ---------- TOP BAR ---------- */
 
 .topbar {
   position: fixed;
@@ -57,21 +60,7 @@ html, body {
   gap: 10px;
 }
 
-.password {
-  width: 180px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: var(--glass);
-  color: var(--fg);
-  outline: none;
-  display: block; 
-}
-
-.password:focus {
-  border-color: rgba(255,255,255,0.24);
-  background: var(--glass2);
-}
+/* ---------- BUTTONS ---------- */
 
 .btn {
   padding: 10px 12px;
@@ -93,73 +82,21 @@ html, body {
   transform: translateY(0px);
 }
 
-.btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.toggle {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-  cursor: pointer;
-}
-
-.toggle input { display: none; }
-
-.pill {
-  width: 44px;
-  height: 24px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--glass);
-  position: relative;
-  transition: background 160ms ease, border-color 160ms ease;
-}
-
-
+/* GitHub icon button */
 .github-btn {
+  padding: 10px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 .github-btn:hover {
   opacity: 1;
 }
 
-
-.pill::after {
-  content: "";
-  width: 18px;
-  height: 18px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.86);
-  position: absolute;
-  top: 50%;
-  left: 3px;
-  transform: translateY(-50%);
-  transition: left 160ms ease;
-  box-shadow: 0 0 16px rgba(255,255,255,0.18);
-}
-
-.toggle input:checked + .pill {
-  background: rgba(10, 132, 255, 0.22);
-  border-color: rgba(10, 132, 255, 0.5);
-}
-
-.toggle input:checked + .pill::after {
-  left: 22px;
-}
-
-.label {
-  font-size: 13px;
-  color: var(--muted);
-}
+/* ---------- HINT ---------- */
 
 .hint {
   position: fixed;
@@ -174,6 +111,8 @@ html, body {
   letter-spacing: 0.2px;
   z-index: 9;
 }
+
+/* ---------- EDITOR ---------- */
 
 .editor {
   position: absolute;
@@ -191,6 +130,15 @@ html, body {
   font-size: 18px;
   line-height: 1.55;
   caret-color: rgba(255,255,255,0.9);
+
+  /* 🔥 scroll works, scrollbar hidden */
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.editor::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .editor::placeholder {
