@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black Send</title>
+
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- LZ-String (Compression) -->
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
+  </head>
+
+  <body>
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <span>Black Send</span>
+      </div>
+
+      <div class="controls">
+        <button id="copyBtn" class="btn" title="Copy link">
+          Copy link
+        </button>
+      </div>
+    </div>
+
+    <div class="hint" id="hint"></div>
+
+    <textarea
+      id="editor"
+      class="editor"
+      placeholder="Type something…"
+      spellcheck="false"
+    ></textarea>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
