@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { compress, decompress } from "../lib/compression";
 
 function normalizePath(p: string): string {
@@ -10,6 +10,8 @@ export function useUrlSync(
   setText: (val: string) => void,
   setHint: (msg: string) => void,
 ) {
+  const initialized = useRef(false);
+
   const loadFromUrl = useCallback(() => {
     const seg = normalizePath(window.location.pathname);
     if (!seg) {
@@ -21,19 +23,21 @@ export function useUrlSync(
     setHint(`/${seg}`);
   }, [setText, setHint]);
 
-  // Sync text changes to URL
+  // Load from URL on mount (runs first)
   useEffect(() => {
+    loadFromUrl();
+    initialized.current = true;
+  }, [loadFromUrl]);
+
+  // Sync text changes to URL (only after initial load)
+  useEffect(() => {
+    if (!initialized.current) return;
     const seg = compress(text);
     const base = window.location.origin;
     const path = seg ? `/${seg}` : "/";
     window.history.replaceState({}, "", base + path);
     setHint(path === "/" ? "" : path);
   }, [text, setHint]);
-
-  // Load from URL on mount
-  useEffect(() => {
-    loadFromUrl();
-  }, [loadFromUrl]);
 
   // Handle browser back/forward
   useEffect(() => {
