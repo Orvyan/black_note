@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/editor.tsx","./src/components/markdownpreview.tsx","./src/components/noteslist.tsx","./src/components/statusbar.tsx","./src/components/topbar.tsx","./src/hooks/uselocalnotes.ts","./src/hooks/useurlsync.ts","./src/lib/compression.ts","./src/lib/export.ts","./src/lib/storage.ts"],"version":"5.9.3"}
